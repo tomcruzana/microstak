@@ -272,6 +272,7 @@ function bindSignInPage() {
       const remember = form.querySelector("#customCheck1").checked;
       const auth = await window.MicrostakApi.login(username, password, remember);
       setStatus(status, `Signed in as ${auth.username}. Token stored for gateway requests.`, "success");
+      window.location.href = "user_profile.html";
     } catch (error) {
       setStatus(status, "Sign in failed. Try demo user/user123 or admin/admin123.", "danger");
     }
@@ -282,12 +283,65 @@ function updateHeaderAuthState() {
   const signInLink = document.querySelector('a[href="user_sign_in.html"]');
   const session = window.MicrostakApi.getAuthSession();
   if (signInLink && session) {
-    signInLink.innerHTML = `<i class="fa-solid fa-user"></i> ${escapeHtml(session.username)}`;
+    const signInItem = signInLink.closest(".nav-item");
+    signInItem.innerHTML = `
+      <a class="nav-link" href="user_profile.html">
+        <i class="fa-solid fa-user"></i> Welcome ${escapeHtml(session.username)}
+      </a>
+    `;
+
+    if (document.querySelector(".header-logout-btn")) {
+      return;
+    }
+
+    const logoutItem = document.createElement("li");
+    logoutItem.className = "nav-item align-self-center";
+    logoutItem.innerHTML = `
+      <button type="button" class="btn btn-link nav-link logout-btn header-logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    `;
+    signInItem.after(logoutItem);
   }
+}
+
+function bindLogoutButtons() {
+  document.querySelectorAll(".logout-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      window.MicrostakApi.clearAuthSession();
+      window.location.href = "user_sign_in.html";
+    });
+  });
+}
+
+function hydrateProfilePage() {
+  if (!window.location.pathname.endsWith("user_profile.html")) {
+    return;
+  }
+
+  const session = window.MicrostakApi.getAuthSession();
+  if (!session) {
+    window.location.href = "user_sign_in.html";
+    return;
+  }
+
+  const username = session.username || "user";
+  const roles = Array.isArray(session.roles) ? session.roles.join(", ") : "USER";
+  const expiresAt = session.expiresAt ? new Date(session.expiresAt).toLocaleString() : "not available";
+  const firstName = username.split(/[.@_-]/)[0] || username;
+
+  document.querySelector("#firstname").textContent = firstName;
+  document.querySelector("#lastname").textContent = "";
+  document.querySelector("#username").textContent = username;
+  document.querySelector("#roles").textContent = roles;
+  document.querySelector("#tokenExpiresAt").textContent = expiresAt;
+  document.querySelector("#isEnabled").textContent = "signed in";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderAuthState();
+  bindLogoutButtons();
+  hydrateProfilePage();
   refreshGuestEmailCount();
   bindGuestEmailForm();
   bindContactPage();
