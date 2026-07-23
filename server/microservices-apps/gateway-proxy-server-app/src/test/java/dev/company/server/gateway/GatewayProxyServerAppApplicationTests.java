@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -61,6 +63,26 @@ class GatewayProxyServerAppApplicationTests {
 				.uri("/customerapi/profile")
 				.exchange()
 				.expectStatus().isUnauthorized();
+	}
+
+	@Test
+	void protectedRoutesRejectInvalidToken() {
+		webTestClient.get()
+				.uri("/auth/me")
+				.headers(headers -> headers.setBearerAuth("not-a-token"))
+				.exchange()
+				.expectStatus().isUnauthorized();
+	}
+
+	@Test
+	void corsAllowsLocalStaticFrontendOrigin() {
+		webTestClient.options()
+				.uri("/productitemapi/products")
+				.header(HttpHeaders.ORIGIN, "http://localhost:8000")
+				.header(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD, HttpMethod.GET.name())
+				.exchange()
+				.expectStatus().isOk()
+				.expectHeader().valueEquals(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://localhost:8000");
 	}
 
 	@Test
