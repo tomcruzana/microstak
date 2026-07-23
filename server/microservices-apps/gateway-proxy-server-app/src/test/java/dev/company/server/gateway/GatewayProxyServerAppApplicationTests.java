@@ -46,6 +46,17 @@ class GatewayProxyServerAppApplicationTests {
 	}
 
 	@Test
+	void loginInfoSupportsBrowserGetRequests() {
+		webTestClient.get()
+				.uri("/auth/login")
+				.exchange()
+				.expectStatus().isOk()
+				.expectBody()
+				.jsonPath("$.frontend").isEqualTo("http://localhost:8000/user_sign_in.html")
+				.jsonPath("$.exampleBody").isNotEmpty();
+	}
+
+	@Test
 	void loginRejectsInvalidCredentials() {
 		webTestClient.post()
 				.uri("/auth/login")

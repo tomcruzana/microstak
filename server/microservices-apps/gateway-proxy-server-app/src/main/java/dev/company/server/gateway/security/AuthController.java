@@ -1,5 +1,7 @@
 package dev.company.server.gateway.security;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,6 +25,14 @@ public class AuthController {
 	public AuthController(DemoUserService demoUserService, JwtTokenService jwtTokenService) {
 		this.demoUserService = demoUserService;
 		this.jwtTokenService = jwtTokenService;
+	}
+
+	@GetMapping("/login")
+	public ResponseEntity<Map<String, String>> loginInfo() {
+		return ResponseEntity.ok(Map.of(
+				"message", "Submit a POST request to /auth/login with username and password JSON.",
+				"frontend", "http://localhost:8000/user_sign_in.html",
+				"exampleBody", "{\"username\":\"user\",\"password\":\"user123\"}"));
 	}
 
 	@PostMapping("/login")
