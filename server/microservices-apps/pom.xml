@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath />
+	</parent>
+
+	<groupId>dev.company.microstak</groupId>
+	<artifactId>microservices-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>microservices-parent</name>
+	<description>Shared build configuration for Microstak services</description>
+
+	<modules>
+		<module>about-us-app</module>
+		<module>company-app</module>
+		<module>contact-us-app</module>
+		<module>coupon-app</module>
+		<module>customer-app</module>
+		<module>employee-app</module>
+		<module>eureka-server-app</module>
+		<module>faq-app</module>
+		<module>gateway-proxy-server-app</module>
+		<module>guest-email-app</module>
+		<module>news-and-updates-app</module>
+		<module>privacy-policy-app</module>
+		<module>product-item-app</module>
+		<module>shipping-and-returns-app</module>
+		<module>terms-of-use-app</module>
+	</modules>
+
+	<properties>
+		<java.version>11</java.version>
+		<spring-cloud.version>2021.0.2</spring-cloud.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
