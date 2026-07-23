@@ -1,4 +1,4 @@
-# Microstak
+# 💻 Microstak
 
 Microstak is a full-stack demo built with a Spring Boot microservices architecture.
 
@@ -6,7 +6,7 @@ Microstak is a full-stack demo built with a Spring Boot microservices architectu
 
 Local demo project. No hosted production URL is currently configured.
 
-## Features
+## ✨ Features
 
 - Spring Boot microservices organized under a shared Maven parent build
 - Spring Cloud Gateway as the single backend entrypoint
@@ -24,7 +24,7 @@ Local demo project. No hosted production URL is currently configured.
 
 [Buy me a coffee](https://buymeacoffee.com/tomcruzana)
 
-## Tech Stack
+## 💻 Tech Stack
 
 - Java 17
 - Spring Boot 4.1.0
@@ -39,14 +39,14 @@ Local demo project. No hosted production URL is currently configured.
 - Font Awesome
 - Micrometer Tracing / Zipkin
 
-## Project Structure
+## 📁 Project Structure
 
 ```txt
 client/prototype/             Static Bootstrap frontend demo
 server/microservices-apps/    Maven parent and Spring Boot microservices
 ```
 
-## Run Locally
+## 🚀 Run Locally
 
 Create the MySQL database:
 
@@ -143,7 +143,7 @@ Admin: admin / admin123
 
 The frontend sign-in page stores the JWT response in browser storage, redirects to the profile page, shows a welcome link in the nav, and clears the session on logout.
 
-## Current Gateway Routes
+## 🌐 Current Gateway Routes
 
 ```txt
 GET    /auth/login
@@ -170,7 +170,7 @@ GET    /termsofuseapi/terms_of_use
 
 Additional gateway route prefixes are configured for customer, employee, and news/update services.
 
-## Checks
+## 🧪 Checks
 
 Backend compile:
 
