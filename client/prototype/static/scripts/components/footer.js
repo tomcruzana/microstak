@@ -15,16 +15,16 @@ class Footer extends HTMLElement {
             <div class="col bg-white text-dark rounded">
                 <div class="pt-2">
                 <div class="email-list-subscription">
-                    <p class="text-right border-top m-0">
+                    <p class="text-end border-top m-0">
                     Subscribe to get the latest deals and more.
                     </p>
-                    <p class="text-right">
+                    <p class="text-end">
                     We have
-                    <span class="total-subscribed-customers font-weight-bold">0</span>
+                    <span class="total-subscribed-customers fw-bold">0</span>
                     customers on our mailing lists!
                     </p>
-                    <form class="form-inline justify-content-end">
-                    <div class="form-group mb-2 mr-3">
+                    <form class="d-flex flex-wrap gap-2 justify-content-end">
+                    <div class="form-group mb-2 me-3">
                         <input
                         type="email"
                         class="form-control"
@@ -38,18 +38,18 @@ class Footer extends HTMLElement {
                     </form>
                 </div>
                 <!--footer social media links -->
-                <div class="social-media-link-group text-right mt-2">
+                <div class="social-media-link-group text-end mt-2">
                     <i class="fa-brands fa-facebook-square fa-2x mx-1"></i>
                     <i class="fa-brands fa-youtube-square fa-2x mx-1"></i>
                     <i class="fa-brands fa-twitter-square fa-2x mx-1"></i>
-                    <i class="fa-brands fa-instagram-square fa-2x ml-1"></i>
+                    <i class="fa-brands fa-instagram-square fa-2x ms-1"></i>
                 </div>
                 </div>
             </div>
 
             <div class="w-100"></div>
 
-            <div class="col text-left">
+            <div class="col text-start">
                 <!--footer general info -->
                 <div class="pt-2 footer-text">
                 <p class="align-middle my-0">
@@ -66,14 +66,14 @@ class Footer extends HTMLElement {
                 </p>
                 </div>
             </div>
-            <div class="col text-right">
+            <div class="col text-end">
                 <!--footer payment types -->
                 <div class="pt-2 payment-types">
                 <i class="fa-brands fa-cc-visa fa-2x mx-1"></i>
                 <i class="fa-brands fa-cc-discover fa-2x mx-1"></i>
                 <i class="fa-brands fa-cc-mastercard fa-2x mx-1"></i>
                 <i class="fa-brands fa-cc-amex fa-2x mx-1"></i>
-                <i class="fa-brands fa-cc-paypal fa-2x ml-1"></i>
+                <i class="fa-brands fa-cc-paypal fa-2x ms-1"></i>
                 </div>
             </div>
             </div>

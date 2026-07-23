@@ -16,7 +16,7 @@ class Header extends HTMLElement {
             </li>
 
             <!-- user location-->
-            <li class="nav-item align-self-center user-location text-light pl-3">
+            <li class="nav-item align-self-center user-location text-light ps-3">
             <p class="m-0 p-0"><i class="fa-solid fa-location-dot"></i> Deliver to</p>
             <p class="m-0 p-0 city-postal">CITY, ZIP CODE</p>
             </li>
@@ -48,7 +48,7 @@ class Header extends HTMLElement {
             <li class="nav-item align-self-center">
             <a
                 href="tel:8665562570"
-                class="badge badge-warning text-dark tel-number p-2"
+                class="badge text-bg-warning text-dark tel-number p-2"
             >
                 +1 (360) 999-1235
             </a>
@@ -61,7 +61,7 @@ class Header extends HTMLElement {
             <li class="nav-item align-self-center">
             <a class="nav-link" href="user_cart.html"
                 ><i class="fa-solid fa-cart-shopping"></i>
-                <span class="badge badge-danger cart-item-count p-2">0</span></a
+                <span class="badge text-bg-danger cart-item-count p-2">0</span></a
             >
             </li>
 
