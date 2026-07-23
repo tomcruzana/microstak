@@ -2,10 +2,10 @@ package dev.company.server.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableEurekaClient
+@EnableDiscoveryClient
 public class GatewayProxyServerAppApplication {
 
 	// see all gatway routes : http://localhost:9091/actuator/gateway/routes

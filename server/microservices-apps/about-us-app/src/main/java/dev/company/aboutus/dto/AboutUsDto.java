@@ -2,7 +2,7 @@ package dev.company.aboutus.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
+import jakarta.persistence.Column;
 
 public class AboutUsDto {
 	private int id;

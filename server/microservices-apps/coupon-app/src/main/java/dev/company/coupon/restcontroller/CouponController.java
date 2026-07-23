@@ -1,7 +1,6 @@
 package dev.company.coupon.restcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import dev.company.coupon.service.CouponService;
 
 @RestController
 @RequestMapping("/couponapi")
-public class CouponController implements ErrorController {
+public class CouponController {
 
 	@Autowired
 	CouponService couponService;
